@@ -1,4 +1,4 @@
-import 'package:blocappflutter/counter/counter_event.dart';
+import 'package:blocappflutter/counter/event/counter_event.dart';
 import 'package:blocappflutter/counter/counterfromscratch/counter_bloc_scratch.dart';
 import 'package:flutter/material.dart';
 
