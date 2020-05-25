@@ -27,6 +27,8 @@ class CounterBlocScratch {
         _counter--;
         break;
     }
+
+    _inCounter.add(_counter);
   }
 
   void dispose() {
