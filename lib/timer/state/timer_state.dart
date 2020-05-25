@@ -22,24 +22,22 @@ class Ready extends TimerState {
 }
 
 class Paused extends TimerState {
-	Paused(int duration) : super(duration);
-	
-	@override
-	String getName() => 'Paused';
-}
+  Paused(int duration) : super(duration);
 
+  @override
+  String getName() => 'Paused';
+}
 
 class Running extends TimerState {
-	Running(int duration) : super(duration);
-	
-	@override
-	String getName() => 'Running';
+  Running(int duration) : super(duration);
+
+  @override
+  String getName() => 'Running';
 }
 
-
 class Finished extends TimerState {
-	Finished(int duration) : super(0);
-	
-	@override
-	String getName() => 'Finished';
+  Finished(int duration) : super(0);
+
+  @override
+  String getName() => 'Finished';
 }
