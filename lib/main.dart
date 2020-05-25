@@ -1,4 +1,5 @@
 import 'package:blocappflutter/counter/counterfromscratch/from_scratch_page.dart';
+import 'package:blocappflutter/counter/counterlibrary/from_library_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Bloc Demo',
-      home: FromScratchPage(),
+      home: FromLibraryPage(),
     );
   }
 }
