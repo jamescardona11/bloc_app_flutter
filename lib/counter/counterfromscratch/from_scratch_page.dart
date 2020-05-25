@@ -6,20 +6,6 @@ class FromScratchPage extends StatefulWidget {
 }
 
 class _FromScratchPageState extends State<FromScratchPage> {
-  int counter = 0;
-
-  void increment() {
-    setState(() {
-      counter++;
-    });
-  }
-
-  void decrement() {
-    setState(() {
-      counter--;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
