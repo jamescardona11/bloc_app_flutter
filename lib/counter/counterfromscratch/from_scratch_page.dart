@@ -1,3 +1,5 @@
+import 'package:blocappflutter/counter/counter_event.dart';
+import 'package:blocappflutter/counter/counterfromscratch/counter_bloc_scratch.dart';
 import 'package:flutter/material.dart';
 
 class FromScratchPage extends StatefulWidget {
@@ -6,6 +8,8 @@ class FromScratchPage extends StatefulWidget {
 }
 
 class _FromScratchPageState extends State<FromScratchPage> {
+  final _blocScratch = CounterBlocScratch();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,30 +17,35 @@ class _FromScratchPageState extends State<FromScratchPage> {
         title: Text('Bloc From Scratch'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+        child: StreamBuilder(
+          stream: _blocScratch.counter,
+          builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'You have pushed the button this many times:',
+                ),
+                Text(
+                  '${snapshot.data}',
+                  style: Theme.of(context).textTheme.headline4,
+                ),
+              ],
+            );
+          },
         ),
       ),
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           FloatingActionButton(
-            onPressed: increment,
+            onPressed: () => _blocScratch.counterEventSink.add(CounterEvent.increment),
             tooltip: 'Increment',
             child: Icon(Icons.add),
           ),
           SizedBox(width: 10),
           FloatingActionButton(
-            onPressed: decrement,
+            onPressed: () => _blocScratch.counterEventSink.add(CounterEvent.decrement),
             tooltip: 'Decrement',
             child: Icon(Icons.remove),
           ),
