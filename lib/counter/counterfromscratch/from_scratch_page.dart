@@ -19,6 +19,7 @@ class _FromScratchPageState extends State<FromScratchPage> {
       body: Center(
         child: StreamBuilder(
           stream: _blocScratch.counter,
+          initialData: 0,
           builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
