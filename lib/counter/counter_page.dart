@@ -26,12 +26,14 @@ class _FloatingWidgetButton extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
         FloatingActionButton(
+          heroTag: null,
           onPressed: () => context.bloc<CounterCubit>().increment(),
           tooltip: 'Increment',
           child: Icon(Icons.add),
         ),
         SizedBox(width: 10),
         FloatingActionButton(
+          heroTag: null,
           onPressed: () => context.bloc<CounterCubit>().decrement(),
           tooltip: 'Decrement',
           child: Icon(Icons.remove),

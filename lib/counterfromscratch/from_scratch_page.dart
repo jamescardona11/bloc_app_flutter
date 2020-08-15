@@ -41,12 +41,14 @@ class _FromScratchPageState extends State<FromScratchPage> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           FloatingActionButton(
+            heroTag: null,
             onPressed: () => _blocScratch.counterEventSink.add(CounterEvent.increment),
             tooltip: 'Increment',
             child: Icon(Icons.add),
           ),
           SizedBox(width: 10),
           FloatingActionButton(
+            heroTag: null,
             onPressed: () => _blocScratch.counterEventSink.add(CounterEvent.decrement),
             tooltip: 'Decrement',
             child: Icon(Icons.remove),

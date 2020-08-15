@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:blocappflutter/counterfromscratch/from_scratch_page.dart';
 import 'package:blocappflutter/counter/counter_page.dart';
 import 'package:blocappflutter/validation/FormScreeenValidation.dart';
+import 'package:blocappflutter/weather/weather_search_page.dart';
 import 'package:flutter/material.dart';
 
 import 'counter/counter_observer.dart';
@@ -33,6 +34,7 @@ class _NavigatorIntern extends StatelessWidget {
   final Map<String, Widget> screens = {
     'Counter from Scratch': FromScratchPage(),
     'Counter from Bloc': CounterPage(),
+    'Weather Resocoder': WeatherSearchPage(),
   };
 
   @override
@@ -53,10 +55,7 @@ List<Widget> convertMapToList(BuildContext context, screens) {
     (key, value) => listItems.add(
       Card(
         child: ListTile(
-          title: Text(
-            key,
-            style: TextStyle(),
-          ),
+          title: Text(key, style: TextStyle()),
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) => value));
           },
