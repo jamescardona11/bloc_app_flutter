@@ -1,3 +1,4 @@
+/*
 part of 'validation_sample_bloc.dart';
 
 @immutable
@@ -12,3 +13,4 @@ class FormScreenEventSubmitState {
     this.submissionSuccess = false,
   });
 }
+*/

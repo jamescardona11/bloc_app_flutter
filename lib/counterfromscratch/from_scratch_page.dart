@@ -1,6 +1,7 @@
-import 'package:blocappflutter/counter/event/counter_event.dart';
-import 'package:blocappflutter/counter/counterfromscratch/counter_bloc_scratch.dart';
 import 'package:flutter/material.dart';
+
+import 'counter_bloc_scratch.dart';
+import 'event/counter_event.dart';
 
 class FromScratchPage extends StatefulWidget {
   @override

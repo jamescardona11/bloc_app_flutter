@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:blocappflutter/counter/event/counter_event.dart';
+import 'event/counter_event.dart';
 
 class CounterBlocScratch {
   int _counter = 0;

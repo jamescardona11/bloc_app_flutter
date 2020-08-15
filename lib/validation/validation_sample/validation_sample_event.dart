@@ -1,3 +1,4 @@
+/*
 part of 'validation_sample_bloc.dart';
 
 @immutable
@@ -7,3 +8,4 @@ class FormScreenEventSubmit extends FormScreenEventSubmitEvent {
   final String email;
   FormScreenEventSubmit(this.email);
 }
+*/
