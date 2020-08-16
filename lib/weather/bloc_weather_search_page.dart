@@ -1,13 +1,26 @@
+import 'package:blocappflutter/weather/data/weather_repository.dart';
+import 'package:blocappflutter/weather/bloc/weather_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'data/model/weather.dart';
 
-class WeatherSearchPage extends StatefulWidget {
+class BlocWeatherSearchPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (_) => WeatherBloc(FakeWeatherRepository()),
+      child: _WeatherSearchPage(),
+    );
+  }
+}
+
+class _WeatherSearchPage extends StatefulWidget {
   @override
   _WeatherSearchPageState createState() => _WeatherSearchPageState();
 }
 
-class _WeatherSearchPageState extends State<WeatherSearchPage> {
+class _WeatherSearchPageState extends State<_WeatherSearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,8 +30,27 @@ class _WeatherSearchPageState extends State<WeatherSearchPage> {
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 16),
         alignment: Alignment.center,
-        // TODO: Implement with cubit
-        child: buildInitialInput(),
+        child: BlocConsumer<WeatherBloc, WeatherState>(
+          listener: (context, state) {
+            Scaffold.of(context).showSnackBar(
+              SnackBar(
+                content: Text('$state'),
+              ),
+            );
+          },
+          builder: (context, state) {
+            if (state is WeatherInitial) {
+              return buildInitialInput();
+            } else if (state is WeatherLoading) {
+              return buildLoading();
+            } else if (state is WeatherLoaded) {
+              return buildColumnWithData(state.weather);
+            } else {
+              // (state is WeatherError)
+              return buildInitialInput();
+            }
+          },
+        ),
       ),
     );
   }
@@ -75,6 +107,7 @@ class CityInputField extends StatelessWidget {
   }
 
   void submitCityName(BuildContext context, String cityName) {
-    // TODO: Get weather for the city
+    final weatherBloc = context.bloc<WeatherBloc>();
+    weatherBloc.add(GetWeather(cityName));
   }
 }
