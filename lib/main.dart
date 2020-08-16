@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:blocappflutter/counterfromscratch/from_scratch_page.dart';
 import 'package:blocappflutter/counter/counter_page.dart';
+import 'package:blocappflutter/timer/timerview.dart';
 import 'package:blocappflutter/validation/FormScreeenValidation.dart';
 import 'package:blocappflutter/weather/cubit_weather_search_page.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +36,7 @@ class _NavigatorIntern extends StatelessWidget {
     'Counter from Scratch': FromScratchPage(),
     'Counter from Bloc': CounterPage(),
     'Weather Resocoder': CubitWeatherSearchPage(),
+    'Timer': TimerPage(),
   };
 
   @override
